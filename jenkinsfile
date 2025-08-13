@@ -1,0 +1,47 @@
+pipeline {
+    agent any
+    tools {
+        // Specify Maven and JDK if needed
+        maven 'maven-3.9.9' 
+        jdk 'java-17'
+    }
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                // Clone the repository from GitHub
+                git branch: 'main', url: 'https://github.com/DharmikDevops/sample-war.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                // Build the project using Maven
+                sh 'mvn clean install'
+            }
+        }
+        stage('Test') {
+            steps {
+                // Run tests using Maven
+                sh 'mvn test'
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                // Run Ansible playbook to deploy the application
+                // Inventory file and playbook are in /home/jenkins-agent
+                sh '''
+                ansible-playbook -i ansible/inventory ansible/deploy.yml
+                '''
+            }
+        }
+    }
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed!'
+        }
+    }
+}
