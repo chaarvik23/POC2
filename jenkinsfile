@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Clone the repository from GitHub
-                git branch: 'main', url: 'https://github.com/DharmikDevops/sample-war.git'
+                git branch: 'main', url: 'https://github.com/chaarvik23/POC2.git'
             }
         }
         stage('Build') {
