@@ -1,11 +1,6 @@
 pipeline {
     agent any
-    tools {
-        // Specify Maven and JDK if needed
-       // maven 'maven-3.9.9' 
-       // jdk 'java-17'
-    }
-    
+       
     stages {
         stage('Checkout') {
             steps {
