@@ -2,7 +2,7 @@
 
 This project involves automating the process of building, testing, analyzing code quality, and deploying a Spring Boot application using Jenkins, Ansible, and a Tomcat server. The process uses Ansible playbooks for deployment, integrates SonarCloud for code quality analysis, and deploys the WAR file directly from Jenkins to a Tomcat server.
 
-## Technologies and Tools:
+# Technologies and Tools:
 
 This project focuses on continuous integration and deployment (CI/CD) using the following tools:
 - *Jenkins*: Automates the build, test, and deployment process.
