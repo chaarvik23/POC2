@@ -26,7 +26,7 @@ pipeline {
                 // Run Ansible playbook to deploy the application
                 // Inventory file and playbook are in /home/jenkins-agent
                 sh '''
-                ansible-playbook -i /var/lib/jenkins/workspace/POC-2/ansible/inventory /var/lib/jenkins/workspace/POC-2/ansible/deploy.yml
+                ansible-playbook -i ansible/inventory ansible/deploy.yaml
                 '''
             }
         }
